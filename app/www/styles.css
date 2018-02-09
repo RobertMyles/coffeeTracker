@@ -1,0 +1,21 @@
+@import url('//fonts.googleapis.com/css?family=Barlow+Condensed');
+      
+h3, h2, h4 {
+	font-family: 'Barlow Condensed', sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.1;
+	color: #1e6d17;
+}
+p {
+	font-family: 'Barlow Condensed', sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.1;
+}
+.myrow {
+	height:25px;
+}
+/* .col-sm-4 {
+    background-color: #bf925a
+} */
