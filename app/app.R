@@ -66,11 +66,14 @@ server <- function(input, output){
     req(input$sb_city)
     req(input$sb_drink)
     df <- df_maker()
-    Y <- df[, 3] %>% pull() %>% sort()
-      ggplot(df, aes(x = reorder(city, Y), y = Y, fill = country)) +
+    
+      ggplot(df, aes(x = reorder(city, df[, 3] %>% pull()), y = df[, 3] %>% pull(), 
+                     fill = country)) +
       geom_bar(stat = "identity", colour = "grey21") +
+      geom_text(aes(y = df[, 3] %>% pull(), label = dollar(df[, 3] %>% pull())), 
+                hjust = -.35, colour = "#230903") +
       theme_minimal() +
-      scale_y_continuous(labels = dollar_format()) +
+      scale_y_continuous(labels = dollar_format(), sec.axis = dup_axis(), limits = c(0, 6.25)) +
       scale_fill_manual(values = c("#592D23", "#8C593B", "#BF925A", "#F2E6D0", "#8B8C58",
                                    "#601700", "#E0D0C1", "#06070E", "#F0A868", "#294936", 
                                    "#FFE8C2", "#944654", "#F7F3E3", "#002500", "#6F1A07",
